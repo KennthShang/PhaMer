@@ -1,1 +1,2 @@
 database/transformer.pth filter=lfs diff=lfs merge=lfs -text
+database/transformer.pth.bz2 filter=lfs diff=lfs merge=lfs -text
