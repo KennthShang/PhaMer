@@ -1,4 +1,4 @@
-![CHERRY](logo.jpg)
+![PhaMer](logo.jpg)
 
 PhaMer is a python library for identifying bacteriophages from metagenomic data. PhaMer is based on a Transorfer model and rely on protein-based vocabulary to convert DNA sequences into sentences. 
 
