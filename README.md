@@ -15,6 +15,7 @@ If you have any trouble installing or using PhaMer, please let us know by openin
 * Pytorch>1.8.0
 * [Diamond](https://github.com/bbuchfink/diamond)
 * [Prodigal](https://github.com/hyattpd/Prodigal)
+* [git-lfs](http://arfc.github.io/manual/guides/git-lfs)
 
 
 If you want to use the gpu to accelerate the program:
