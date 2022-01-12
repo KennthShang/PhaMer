@@ -36,6 +36,7 @@ Due to the limited size of the GitHub, we zip the database. Before using PhaMer,
 ```
 cd PhaMer/database
 bzip2 -d database.fa.bz2
+git lfs install
 cd ..
 ```
 
