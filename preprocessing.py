@@ -135,8 +135,8 @@ for row in range(sentence.shape[0]):
             break
 
 # Corresponding Evalue weight
-sentence_weight[sentence_weight<1e-200] = 1e-200
-sentence_weight = -np.log(sentence_weight)/200
+#sentence_weight[sentence_weight<1e-200] = 1e-200
+#sentence_weight = -np.log(sentence_weight)/200
 
 # propostion
 rec = []
@@ -158,7 +158,6 @@ proportion = mapped_num/total_num
 
 # Store the parameters
 pkl.dump(sentence,        open(transformer_fn + 'sentence.feat', 'wb'))
-pkl.dump(sentence_weight, open(transformer_fn + 'sentence_weight.feat', 'wb'))
 pkl.dump(id2contig,       open(transformer_fn + 'sentence_id2contig.dict', 'wb'))
 pkl.dump(proportion,      open(transformer_fn + 'sentence_proportion.feat', 'wb'))
 pkl.dump(pc2wordsid,      open(transformer_fn + 'pc2wordsid.dict', 'wb'))

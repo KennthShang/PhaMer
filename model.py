@@ -127,8 +127,7 @@ class Encoder(nn.Module):
 
         # In the Encoder the query, key, value are all the same, it's in the
         # decoder this will change. This might look a bit odd in this case.
-        for layer in self.layers:
-            out = layer(out, out, out, mask)
+        out = self.layers(out, out, out, mask)
 
         return out
 
