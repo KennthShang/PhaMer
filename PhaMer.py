@@ -16,7 +16,9 @@ num_pcs = len(set(pcs2idx.keys()))
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-torch.cuda.set_device(0)
+if device == 'cpu':
+    print("running with cpu")
+
 src_pad_idx = 0
 src_vocab_size = num_pcs+1
 
@@ -78,14 +80,15 @@ except:
 ####################################################################################
 
 
-sentence   = open(transformer_fn + 'sentence.feat', 'wb')
-id2contig  = open(transformer_fn + 'sentence_id2contig.dict', 'wb')
-proportion = open(transformer_fn + 'sentence_proportion.feat', 'wb')
+sentence   = pkl.load(open(transformer_fn + 'sentence.feat', 'rb'))
+id2contig  = pkl.load(open(transformer_fn + 'sentence_id2contig.dict', 'rb'))
+proportion = pkl.load(open(transformer_fn + 'sentence_proportion.feat', 'rb'))
 
 
 all_pred = []
 all_score = []
 with torch.no_grad():
+    _ = model.eval()
     for idx in range(0, len(sentence), 500):
         try:
             batch_x = sentence[idx: idx+500]
@@ -93,7 +96,7 @@ with torch.no_grad():
         except:
             batch_x = sentence[idx:]
             weight  = proportion[idx:]
-        batch_x = return_tensor(batch_x, device).int()
+        batch_x = return_tensor(batch_x, device).long()
         logit = model(batch_x)
         logit = torch.sigmoid(logit.squeeze(1))
         logit = reject_prophage(logit, weight)
