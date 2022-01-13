@@ -65,8 +65,9 @@ python PhaMer.py
 
 Prediction on the example file:
 
-    python run_Speed_up.py --contigs test_contigs.fa
-    
+    python preprocessing.py --contigs test_contigs.fa
+    python PhaMer.py
+
     
 ### References
 The paper is submitted to the *ISMB 2022*.
