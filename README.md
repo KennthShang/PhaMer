@@ -39,5 +39,35 @@ bzip2 -d database.fa.bz2
 git lfs install
 cd ..
 ```
+*Note:* Because the parameter is larger than 100M, please make sure you have installed git-lfs to downloaded it from GitHub
+
 
 ## Usage
+```
+python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN]
+python PhaMer.py
+
+```
+**Options**
+
+
+      --contigs INPUT_FA
+                            input fasta file
+      --len MINIMUM_LEN
+                            predict only for sequence >= len bp (default 4000)
+
+**Example**
+
+Prediction on the example file:
+
+    python run_Speed_up.py --contigs test_contigs.fa
+    
+    
+### References
+The paper is submitted to the *ISMB 2022*.
+
+The arXiv version can be found via: Accurate identification of bacteriophages from metagenomic data using Transformer
+
+### Contact
+If you have any questions, please email us: jyshang2-c@my.cityu.edu.hk
+
