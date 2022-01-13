@@ -39,6 +39,8 @@ conda env create -f PhaMer.yaml
 cd database/
 bzip2 -d database.fa.bz2
 git lfs install
+rm transformer.pth
+git checkout .
 cd ..
 ```
 *Note:* Because the parameter is larger than 100M, please make sure you have installed git-lfs to downloaded it from GitHub
