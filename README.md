@@ -30,12 +30,13 @@ After cloning this respository, you can use anaconda to install the **PhaMer.yam
 * For cpu version pytorch: `conda install pytorch torchvision torchaudio cpuonly -c pytorch`
 * For gpu version pytorch: Search [pytorch](https://pytorch.org/) to find the correct cuda version according to your computer
 
-### Prepare the database
+### Prepare the database and environment
 Due to the limited size of the GitHub, we zip the database. Before using PhaMer, you need to unpack them using the following commands.
 
 ```
 cd PhaMer/
-conda env create -f PhaMer.yaml
+conda env create -f PhaMer.yaml -n phamer
+conda activate phamer
 cd database/
 bzip2 -d database.fa.bz2
 git lfs install
