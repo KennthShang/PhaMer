@@ -61,7 +61,7 @@ def return_tensor(var, device):
 
 
 def reject_prophage(all_pred, weight):
-    all_pred = np.array(all_pred)
+    all_pred = np.array(all_pred.detach().cpu())
     all_pred[weight < 0.3] = 0
     return all_pred
 
