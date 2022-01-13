@@ -5,6 +5,7 @@ from    torch import optim
 import  torch.utils.data as Data
 from    sklearn.model_selection import KFold
 import  numpy as np
+import pandas as pd
 import  pickle as pkl
 from model import Transformer
 from sklearn.metrics import classification_report
