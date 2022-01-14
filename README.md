@@ -78,7 +78,7 @@ Prediction on the example file:
 ### References
 The paper is submitted to the *ISMB 2022*.
 
-The arXiv version can be found via: Accurate identification of bacteriophages from metagenomic data using Transformer
+The arXiv version can be found via: [Accurate identification of bacteriophages from metagenomic data using Transformer](http://arxiv.org/abs/2201.04778)
 
 ### Contact
 If you have any questions, please email us: jyshang2-c@my.cityu.edu.hk
