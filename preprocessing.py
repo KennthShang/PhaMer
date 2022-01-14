@@ -15,7 +15,7 @@ from Bio.SeqRecord import SeqRecord
 
 parser = argparse.ArgumentParser(description='manual to this script')
 parser.add_argument('--contigs', type=str, default = 'test_contigs.fa')
-parser.add_argument('--len', type=int, default=4000)
+parser.add_argument('--len', type=int, default=3000)
 inputs = parser.parse_args()
 
 
