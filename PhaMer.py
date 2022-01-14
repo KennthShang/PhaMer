@@ -7,9 +7,18 @@ from    sklearn.model_selection import KFold
 import  numpy as np
 import pandas as pd
 import  pickle as pkl
+import argparse
 from model import Transformer
 from sklearn.metrics import classification_report
 from sklearn.metrics import precision_score, recall_score
+
+
+
+parser = argparse.ArgumentParser(description='manual to this script')
+parser.add_argument('--out', type=str, default = 'example_prediction.csv')
+parser.add_argument('--reject', type=float, default = 0.3)
+inputs = parser.parse_args()
+
 
 transformer_fn = 'transformer_input/'
 pcs2idx = pkl.load(open(transformer_fn+'pc2wordsid.dict', 'rb'))
@@ -62,7 +71,7 @@ def return_tensor(var, device):
 
 def reject_prophage(all_pred, weight):
     all_pred = np.array(all_pred.detach().cpu())
-    all_pred[weight < 0.3] = 0
+    all_pred[weight < inputs.reject] = 0
     return all_pred
 
 
@@ -107,7 +116,7 @@ with torch.no_grad():
 
 
 pred_csv = pd.DataFrame({"Contig":id2contig.values(), "Pred":all_pred, "Score":all_score})
-pred_csv.to_csv('final_prediction.csv', index = False)
+pred_csv.to_csv(inputs.out, index = False)
 
 
 
