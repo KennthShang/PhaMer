@@ -56,7 +56,7 @@ conda activate phamer
 ## Usage
 ```
 python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN]
-python PhaMer.py
+python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD]
 ```
 
 **Options**
@@ -65,16 +65,20 @@ python PhaMer.py
       --contigs INPUT_FA
                             input fasta file
       --len MINIMUM_LEN
-                            predict only for sequence >= len bp (default 4000)
+                            predict only for sequence >= len bp (default 3000)
+      --out OUTPUT_CSV
+                            The output csv file (prediction)
+      --reject THRESHOLD
+                            Threshold to reject prophage. The higher the value, the more prophage will be rejected (default 0.3)
 
 **Example**
 
 Prediction on the example file:
 
     python preprocessing.py --contigs test_contigs.fa
-    python PhaMer.py
+    python PhaMer.py --out example_prediction.csv
 
-The prediction will be written in *final_prediction.csv*
+The prediction will be written in *example_prediction.csv*. The CSV file has three columns: contigs names, prediction, and prediction score.
     
 ### References
 The paper is submitted to the *ISMB 2022*.
