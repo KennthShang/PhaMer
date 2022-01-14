@@ -3,7 +3,7 @@
 PhaMer is a python library for identifying bacteriophages from metagenomic data. PhaMer is based on a Transorfer model and rely on protein-based vocabulary to convert DNA sequences into sentences. 
 
 # Overview
-The main function of PhaMer is to identify phage-like contigs from metagenomic data. The input of the program should be fasta files and the output will be a csv file showing the predictions. Since it is a Deep learning model, you can either re-train your own model or use our pre-train model for prediction. However, if you do not have GPU units on your PC, we recommand you to use the pre-trained model to save your time. We will continuously update the database for your convenience.
+The main function of PhaMer is to identify phage-like contigs from metagenomic data. The input of the program should be fasta files and the output will be a csv file showing the predictions. Since it is a Deep learning model, if you have GPU units on your PC, we recommand you to use them to save your time. 
 
 If you have any trouble installing or using PhaMer, please let us know by opening an issue on GitHub or emailing us (jyshang2-c@my.cityu.edu.hk).
 
