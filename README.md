@@ -57,8 +57,8 @@ conda activate phamer
 ```
 python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN]
 python PhaMer.py
-
 ```
+
 **Options**
 
 
@@ -74,6 +74,7 @@ Prediction on the example file:
     python preprocessing.py --contigs test_contigs.fa
     python PhaMer.py
 
+The prediction will be written in *final_prediction.csv*
     
 ### References
 The paper is submitted to the *ISMB 2022*.
