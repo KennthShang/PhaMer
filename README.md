@@ -22,13 +22,14 @@ If you want to use the gpu to accelerate the program:
 * cuda
 * Pytorch-gpu
 
+* For cpu version pytorch: `conda install pytorch torchvision torchaudio cpuonly -c pytorch`
+* For gpu version pytorch: Search [pytorch](https://pytorch.org/) to find the correct cuda version according to your computer
+
 ### An easiler way to install
 *Note*: we suggest you to install all the package using conda (both miniconda and [Anaconda](https://anaconda.org/) are ok).
 
 After cloning this respository, you can use anaconda to install the **PhaMer.yaml**. This will install all packages you need with gpu mode (make sure you have installed cuda on your system to use the gpu version. Othervise, it will run with cpu version). The command is: `conda env create -f PhaMer.yaml -n phamer`
 
-* For cpu version pytorch: `conda install pytorch torchvision torchaudio cpuonly -c pytorch`
-* For gpu version pytorch: Search [pytorch](https://pytorch.org/) to find the correct cuda version according to your computer
 
 ### Prepare the database and environment
 Due to the limited size of the GitHub, we zip the database. Before using PhaMer, you need to unpack them using the following commands.
