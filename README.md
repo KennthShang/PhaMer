@@ -46,7 +46,9 @@ rm transformer.pth
 git checkout .
 cd ..
 ```
-*Note:* Because the parameter is larger than 100M, please make sure you have installed git-lfs to downloaded it from GitHub
+*Note:* **Please check whether your transformer.pth is larger than 100M before using PhaMer**
+* Because the parameter is larger than 100M, please make sure you have installed git-lfs to downloaded transformer.pth from GitHub
+* Seems there exist limited bandwidth on GitHub, if you cannot download the *transformer.pth* from GitHub, please use the [Google Drive link](https://drive.google.com/file/d/1PM4kgHAdEpEqZc0L8kdYSyYOmsb3FUmR/view?usp=sharing) to download it and place it in the *database/* folder. 
 
 2. If the example can be run without any but bugs, you only need to activate your 'phamer' environment before using PhaMer.
 ```
