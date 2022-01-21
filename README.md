@@ -81,7 +81,7 @@ Prediction on the example file:
     python preprocessing.py --contigs test_contigs.fa
     python PhaMer.py --out example_prediction.csv
 
-The prediction will be written in *example_prediction.csv*. The CSV file has three columns: contigs names, prediction, and prediction score.
+The prediction will be written in *example_prediction.csv*. The CSV file has three columns: contigs names, prediction, and prediction score. The test_contig.fasta contain a phage genome, so the output is phage.
     
 ### References
 The paper is submitted to the *ISMB 2022*.
