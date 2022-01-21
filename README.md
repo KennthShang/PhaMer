@@ -57,6 +57,8 @@ conda activate phamer
 
 
 ## Usage
+**Note:** the program should be run within the GitHub folder in the current version, since it will create and remove files and folders. This might cause some problems when your files have the same names. We will try to solve this problem soon.
+
 ```
 python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN]
 python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD]
