@@ -20,6 +20,11 @@ parser.add_argument('--reject', help='threshold to reject prophage',  type=float
 inputs = parser.parse_args()
 
 
+out_dir = os.path.dirname(inputs.out)
+
+if not os.path.isdir(out_dir):
+    os.makedirs(out_dir)
+
 transformer_fn = 'transformer_input/'
 pcs2idx = pkl.load(open(transformer_fn+'pc2wordsid.dict', 'rb'))
 num_pcs = len(set(pcs2idx.keys()))
