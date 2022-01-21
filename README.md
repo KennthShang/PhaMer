@@ -57,7 +57,7 @@ conda activate phamer
 
 
 ## Usage
-**Note:** the program should be run within the GitHub folder in the current version, since it will create and remove files and folders. This might cause some problems when your files have the same names. We will try to solve this problem soon.
+**Note:** the program should be run within the GitHub folder in the current version, since it will create and remove files and folders. This might cause some problems when your files have the same names. The intermediate files will be stored into the 'output' folder. Please do not use the same name as this folder.
 
 ```
 python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN]
