@@ -146,7 +146,7 @@ proportion = mapped_num/total_num
 
 
 # Store the parameters
-pkl.dump(sentence,        open(transformer_fn + 'sentence.feat', 'wb'))
-pkl.dump(id2contig,       open(transformer_fn + 'sentence_id2contig.dict', 'wb'))
-pkl.dump(proportion,      open(transformer_fn + 'sentence_proportion.feat', 'wb'))
-pkl.dump(pc2wordsid,      open(transformer_fn + 'pc2wordsid.dict', 'wb'))
+pkl.dump(sentence,        open(f'{transformer_fn}/sentence.feat', 'wb'))
+pkl.dump(id2contig,       open(f'{transformer_fn}/sentence_id2contig.dict', 'wb'))
+pkl.dump(proportion,      open(f'{transformer_fn}/sentence_proportion.feat', 'wb'))
+pkl.dump(pc2wordsid,      open(f'{transformer_fn}/pc2wordsid.dict', 'wb'))
