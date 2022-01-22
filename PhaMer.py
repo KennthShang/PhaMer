@@ -18,16 +18,16 @@ from sklearn.metrics import precision_score, recall_score
 
 parser = argparse.ArgumentParser(description="""PhaMer is a python library for identifying bacteriophages from metagenomic data. 
                                  PhaMer is based on a Transorfer model and rely on protein-based vocabulary to convert DNA sequences into sentences.""")
-parser.add_argument('--out', help='name of the output file',  type=str, default = 'example_prediction.csv')
+parser.add_argument('--out', help='name of the output file',  type=str, default = 'out/example_prediction.csv')
 parser.add_argument('--reject', help='threshold to reject prophage',  type=float, default = 0.3)
 parser.add_argument('--midfolder', help='folder to store the intermediate files', type=str, default='phamer/')
 inputs = parser.parse_args()
 
 
 out_dir = os.path.dirname(inputs.out)
-
-if not os.path.isdir(out_dir):
-    os.makedirs(out_dir)
+if out_dir != '':
+    if not os.path.isdir(out_dir):
+        os.makedirs(out_dir)
 
 transformer_fn = inputs.midfolder
 pcs2idx = pkl.load(open(f'{transformer_fn}/pc2wordsid.dict', 'rb'))
