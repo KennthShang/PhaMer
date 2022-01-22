@@ -93,3 +93,5 @@ The arXiv version can be found via: [Accurate identification of bacteriophages f
 ### Contact
 If you have any questions, please email us: jyshang2-c@my.cityu.edu.hk
 
+### Notes
+If you want to run multiple tasks at the same time (either on physical host or virtual machine), please copy PhaMer package into different folders and run different tasks under different folders. Do not run different tasks under the same folder in the current version.
