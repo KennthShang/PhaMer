@@ -60,8 +60,8 @@ conda activate phamer
 **Note:** For a safer usage, we recommand running the program within the GitHub folder in the current version, because the program will generate intermediate files. This might cause some problems when your files have the same names. The intermediate files will be stored into the 'phamer' folder. Please do not use the same name as this folder.
 
 ```
-python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN]
-python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD]
+python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN] [--midfolder DIR]
+python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD] [--midfolder DIR]
 ```
 
 **Options**
@@ -75,6 +75,8 @@ python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD]
                             The output csv file (prediction)
       --reject THRESHOLD
                             Threshold to reject prophage. The higher the value, the more prophage will be rejected (default 0.3)
+      --midfolder DIR
+                            Folder to store the intermediate files (default phamer/)
 
 **Example**
 
@@ -93,5 +95,4 @@ The arXiv version can be found via: [Accurate identification of bacteriophages f
 ### Contact
 If you have any questions, please email us: jyshang2-c@my.cityu.edu.hk
 
-### Notes
-If you want to run multiple tasks at the same time (either on physical host or virtual machine), please copy PhaMer package into different folders and run different tasks under different folders. Do not run different tasks under the same folder in the current version.
+
