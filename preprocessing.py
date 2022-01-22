@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description="""PhaMer is a python library for i
                                  PhaMer is based on a Transorfer model and rely on protein-based vocabulary to convert DNA sequences into sentences.""")
 parser.add_argument('--contigs', help='FASTA file of contigs',  default = 'test_contigs.fa')
 parser.add_argument('--len', help='minimun length of contigs', type=int, default=3000)
-parser.add_argument('--midfolder', help='folder to store the intermediate files', type=int, default=3000)
+parser.add_argument('--midfolder', help='folder to store the intermediate files', type=str, default='phamer')
 inputs = parser.parse_args()
 
 
