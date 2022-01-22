@@ -30,7 +30,7 @@ inputs = parser.parse_args()
 out_fn = inputs.midfolder
 transformer_fn = inputs.midfolder
 
-if not os.path.isdir(out_dir):
+if not os.path.isdir(out_fn):
     os.makedirs(out_fn)
 
 #############################################################
