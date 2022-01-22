@@ -30,22 +30,8 @@ inputs = parser.parse_args()
 out_fn = inputs.midfolder
 transformer_fn = inputs.midfolder
 
-def check_folder(file_name):
-    if not os.path.exists(file_name):
-        _ = os.makedirs(file_name)
-    else:
-        print("folder {0} exist... cleaning dictionary".format(file_name))
-        if os.listdir(file_name):
-            try:
-                _ = subprocess.check_call("rm -rf {0}".format(file_name), shell=True)
-                _ = os.makedirs(file_name)
-                print("Dictionary cleaned")
-            except:
-                print("Cannot clean your folder... permission denied")
-                exit(1)
-
-
-check_folder(out_fn)
+if not os.path.isdir(out_dir):
+    os.makedirs(out_fn)
 
 #############################################################
 ##################  Filter short contigs  ###################
