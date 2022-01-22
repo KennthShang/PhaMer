@@ -30,7 +30,7 @@ if not os.path.isdir(out_dir):
     os.makedirs(out_dir)
 
 transformer_fn = inputs.midfolder
-pcs2idx = pkl.load(open(transformer_fn+'pc2wordsid.dict', 'rb'))
+pcs2idx = pkl.load(open(f'{transformer_fn}/pc2wordsid.dict', 'rb'))
 num_pcs = len(set(pcs2idx.keys()))
 
 
@@ -99,9 +99,9 @@ except:
 ####################################################################################
 
 
-sentence   = pkl.load(open(transformer_fn + 'sentence.feat', 'rb'))
-id2contig  = pkl.load(open(transformer_fn + 'sentence_id2contig.dict', 'rb'))
-proportion = pkl.load(open(transformer_fn + 'sentence_proportion.feat', 'rb'))
+sentence   = pkl.load(open(f'{transformer_fn}/sentence.feat', 'rb'))
+id2contig  = pkl.load(open(f'{transformer_fn}/sentence_id2contig.dict', 'rb'))
+proportion = pkl.load(open(f'{transformer_fn}/sentence_proportion.feat', 'rb'))
 
 
 all_pred = []
