@@ -23,7 +23,7 @@ inputs = parser.parse_args()
 ######################  Check folders  ######################
 #############################################################
 
-out_fn = 'output/'
+out_fn = 'phamer/'
 transformer_fn = 'transformer_input/'
 
 def check_folder(file_name):
@@ -58,7 +58,7 @@ SeqIO.write(rec, out_fn+'filtered_contigs.fa', 'fasta')
 #############################################################
 
 
-prodigal_cmd = 'prodigal -i output/filtered_contigs.fa -a output/test_protein.fa -f gff -p meta'
+prodigal_cmd = 'prodigal -i phamer/filtered_contigs.fa -a phamer/test_protein.fa -f gff -p meta'
 print("Running prodigal...")
 _ = subprocess.check_call(prodigal_cmd, shell=True)
 
@@ -73,15 +73,15 @@ print("Creating Diamond database and running Diamond...")
 
 try:
     # create database
-    make_diamond_cmd = 'diamond makedb --threads 8 --in database/database.fa -d output/database.dmnd'
+    make_diamond_cmd = 'diamond makedb --threads 8 --in database/database.fa -d phamer/database.dmnd'
     print("Creating Diamond database...")
     _ = subprocess.check_call(make_diamond_cmd, shell=True)
     # running alignment
-    diamond_cmd = 'diamond blastp --threads 8 --sensitive -d output/database.dmnd -q output/test_protein.fa -o output/results.tab -k 1'
+    diamond_cmd = 'diamond blastp --threads 8 --sensitive -d phamer/database.dmnd -q phamer/test_protein.fa -o phamer/results.tab -k 1'
     print("Running Diamond...")
     _ = subprocess.check_call(diamond_cmd, shell=True)
-    diamond_out_fp = "output/results.tab"
-    database_abc_fp = "output/results.abc"
+    diamond_out_fp = "phamer/results.tab"
+    database_abc_fp = "phamer/results.abc"
     _ = subprocess.check_call("awk '$1!=$2 {{print $1,$2,$11}}' {0} > {1}".format(diamond_out_fp, database_abc_fp), shell=True)
 except:
     print("create database failed")
@@ -100,7 +100,7 @@ proteins_df = pd.read_csv('database/proteins.csv')
 proteins_df.dropna(axis=0, how='any', inplace=True)
 pc2wordsid = {pc: idx for idx, pc in enumerate(sorted(set(proteins_df['cluster'].values)))}
 protein2pc = {protein: pc for protein, pc in zip(proteins_df['protein_id'].values, proteins_df['cluster'].values)}
-blast_df = pd.read_csv("output/results.abc", sep=' ', names=['query', 'ref', 'evalue'])
+blast_df = pd.read_csv("phamer/results.abc", sep=' ', names=['query', 'ref', 'evalue'])
 
 # Parse the DIAMOND results
 contig2pcs = {}
@@ -147,7 +147,7 @@ counter = Counter(rec)
 mapped_num = np.array([counter[item] for item in id2contig.values()])
 
 rec = []
-for record in SeqIO.parse('output/test_protein.fa', 'fasta'):
+for record in SeqIO.parse('phamer/test_protein.fa', 'fasta'):
     name = record.id
     name = name.rsplit('_', 1)[0]
     rec.append(name)
