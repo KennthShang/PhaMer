@@ -57,7 +57,6 @@ conda activate phamer
 
 
 ## Usage
-**Note:** For a safer usage, we recommand running the program within the GitHub folder in the current version, because the program will generate intermediate files. This might cause some problems when your files have the same names. The intermediate files will be stored into the 'phamer' folder. Please do not use the same name as this folder.
 
 ```
 python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN] [--midfolder DIR]
