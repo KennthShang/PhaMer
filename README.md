@@ -50,6 +50,15 @@ cd ..
 * Because the parameter is larger than 100M, please make sure you have installed git-lfs to downloaded transformer.pth from GitHub
 * Seems there exist limited bandwidth on GitHub, if you cannot download the *transformer.pth* from GitHub, please use the [Google Drive link](https://drive.google.com/file/d/1PM4kgHAdEpEqZc0L8kdYSyYOmsb3FUmR/view?usp=sharing) to download it and place it in the *database/* folder. 
 
+To download the parameters from google drive: at the directory of database, run
+```
+fileid="1PM4kgHAdEpEqZc0L8kdYSyYOmsb3FUmR"
+filename="transformer.pth"
+curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=${fileid}" > /dev/null
+curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=${fileid}" -o ${filename}
+```
+
+
 2. If the example can be run without any but bugs, you only need to activate your 'phamer' environment before using PhaMer.
 ```
 conda activate phamer
