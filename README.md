@@ -41,22 +41,18 @@ conda env create -f PhaMer.yaml -n phamer
 conda activate phamer
 cd database/
 bzip2 -d database.fa.bz2
-git lfs install
-rm transformer.pth
-git checkout .
-cd ..
-```
-*Note:* **Please check whether your transformer.pth is larger than 100M before using PhaMer**
-* Because the parameter is larger than 100M, please make sure you have installed git-lfs to downloaded transformer.pth from GitHub
-* Seems there exist limited bandwidth on GitHub, if you cannot download the *transformer.pth* from GitHub, please use the [Google Drive link](https://drive.google.com/file/d/1PM4kgHAdEpEqZc0L8kdYSyYOmsb3FUmR/view?usp=sharing) to download it and place it in the *database/* folder. 
 
-To download the parameters from google drive: at the directory of database, run
-```
 fileid="1PM4kgHAdEpEqZc0L8kdYSyYOmsb3FUmR"
 filename="transformer.pth"
 html=`curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=${fileid}"`
 curl -Lb ./cookie "https://drive.google.com/uc?export=download&`echo ${html}|grep -Po '(confirm=[a-zA-Z0-9\-_]+)'`&id=${fileid}" -o ${filename}
+
+cd ..
 ```
+*Note:* **Please check whether your transformer.pth is larger than 100M before using PhaMer**
+* Because the parameter is larger than 100M, please make sure you have downloaded transformer.pth correctly.
+* if you cannot download the *transformer.pth* from the command lines above, please use the [Google Drive link](https://drive.google.com/file/d/1PM4kgHAdEpEqZc0L8kdYSyYOmsb3FUmR/view?usp=sharing) to download it and place it in the *database/* folder. 
+
 
 
 2. If the example can be run without any but bugs, you only need to activate your 'phamer' environment before using PhaMer.
