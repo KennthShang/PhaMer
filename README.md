@@ -92,8 +92,6 @@ Prediction on the example file:
 The prediction will be written in *example_prediction.csv*. The CSV file has three columns: contigs names, prediction, and prediction score. The test_contig.fasta contain a phage genome, so the output is phage.
     
 ### References
-The paper is submitted to the *ISMB 2022*.
-
 The arXiv version can be found via: [Accurate identification of bacteriophages from metagenomic data using Transformer](http://arxiv.org/abs/2201.04778)
 
 ### Contact
