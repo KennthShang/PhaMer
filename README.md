@@ -25,7 +25,7 @@ If you want to use the gpu to accelerate the program:
 * For cpu version pytorch: `conda install pytorch torchvision torchaudio cpuonly -c pytorch`
 * For gpu version pytorch: Search [pytorch](https://pytorch.org/) to find the correct cuda version according to your computer
 
-### An easiler way to install
+### Quick install
 *Note*: we suggest you to install all the package using conda (both miniconda and [Anaconda](https://anaconda.org/) are ok).
 
 After cloning this respository, you can use anaconda to install the **PhaMer.yaml**. This will install all packages you need with gpu mode (make sure you have installed cuda on your system to use the gpu version. Othervise, it will run with cpu version). The command is: `conda env create -f PhaMer.yaml -n phamer`
@@ -55,7 +55,7 @@ cd ..
 
 
 
-2. If the example can be run without any but bugs, you only need to activate your 'phamer' environment before using PhaMer.
+2. If the example can be run without any bugs, you only need to activate your 'phamer' environment before using PhaMer.
 ```
 conda activate phamer
 ```
