@@ -51,7 +51,7 @@ cd ..
 ```
 *Note:* **Please check whether your transformer.pth is larger than 100M before using PhaMer**
 * Because the parameter is larger than 100M, please make sure you have downloaded transformer.pth correctly.
-* if you cannot download the *transformer.pth* from the command lines above, please use the [Google Drive link](https://drive.google.com/file/d/1PM4kgHAdEpEqZc0L8kdYSyYOmsb3FUmR/view?usp=sharing) to download it and place it in the *database/* folder. 
+* if you cannot download the *transformer.pth* from the command lines above, please use the [Google Drive link](https://drive.google.com/file/d/1d_6DGhN4Q-NZPKHEIo4yD4InLkP2U1rI/view?usp=sharing) to download it and place it in the *database/* folder. 
 
 
 
