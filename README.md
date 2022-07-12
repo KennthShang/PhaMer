@@ -107,9 +107,9 @@ Prediction on the example file:
 The prediction will be written in *example_prediction.csv*. The CSV file has three columns: contigs names, prediction, and prediction score. The test_contig.fasta contain a phage genome, so the output is phage.
     
 ### References
-The paper is accepted by Briefings in Bioinformatics and you can find it via: [PhaMer](https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbac258/6620872)
+The paper is accepted by Briefings in Bioinformatics and you can find it via: [BIB version](https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbac258/6620872)
 
-The arXiv version can also be found via: [PhaMer](http://arxiv.org/abs/2201.04778)
+The arXiv version can also be found via: [arXiv version](http://arxiv.org/abs/2201.04778)
 
 ### Contact
 If you have any questions, please email us: jyshang2-c@my.cityu.edu.hk
