@@ -75,6 +75,7 @@ dependencies:
   - perl=5.26.2=h14c3975_0
   - pillow=8.4.0=py38h5aabda8_0
   - pip=21.1.3=py38h06a4308_0
+  - pprodigal=1.0.1=pyhdfd78af_0
   - prodigal=2.6.3=h779adbc_3
   - py-boost=1.73.0=py38ha9443f7_11
   - pycosat=0.6.3=py38h7b6447c_1
