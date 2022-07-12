@@ -108,6 +108,7 @@ The prediction will be written in *example_prediction.csv*. The CSV file has thr
     
 ### References
 The paper is accepted by Briefings in Bioinformatics and you can find it via: [PhaMer](https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbac258/6620872)
+
 The arXiv version can also be found via: [PhaMer](http://arxiv.org/abs/2201.04778)
 
 ### Contact
