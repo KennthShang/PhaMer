@@ -5,23 +5,31 @@ from    torch import nn
 from    torch.nn import functional as F
 from    torch import optim
 import  torch.utils.data as Data
-from    sklearn.model_selection import KFold
+#from    sklearn.model_selection import KFold
 import  numpy as np
 import pandas as pd
 import  pickle as pkl
 import argparse
 from model import Transformer
-from sklearn.metrics import classification_report
-from sklearn.metrics import precision_score, recall_score
+#from sklearn.metrics import classification_report
+#from sklearn.metrics import precision_score, recall_score
 
 
 
 parser = argparse.ArgumentParser(description="""PhaMer is a python library for identifying bacteriophages from metagenomic data. 
                                  PhaMer is based on a Transorfer model and rely on protein-based vocabulary to convert DNA sequences into sentences.""")
+parser.add_argument('--dbdir', help='database directory (optional)',  default = 'database')
 parser.add_argument('--out', help='name of the output file',  type=str, default = 'out/example_prediction.csv')
 parser.add_argument('--reject', help='threshold to reject prophage',  type=float, default = 0.2)
 parser.add_argument('--midfolder', help='folder to store the intermediate files', type=str, default='phamer/')
+parser.add_argument('--threads', help='number of threads to use', type=int, default=8)
 inputs = parser.parse_args()
+
+
+db_dir = inputs.dbdir
+if not os.path.exists(db_dir):
+    print(f'Database directory {db_dir} missing or unreadable')
+    exit(1)
 
 
 out_dir = os.path.dirname(inputs.out)
@@ -37,6 +45,7 @@ num_pcs = len(set(pcs2idx.keys()))
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 if device == 'cpu':
     print("running with cpu")
+    torch.set_num_threads(inputs.threads)
 
 src_pad_idx = 0
 src_vocab_size = num_pcs+1
@@ -88,7 +97,7 @@ def reject_prophage(all_pred, weight):
 # training with short contigs 
 model, optimizer, loss_func = reset_model()
 try:
-    pretrained_dict=torch.load('database/transformer.pth', map_location=device)
+    pretrained_dict=torch.load(f'{db_dir}/transformer.pth', map_location=device)
     model.load_state_dict(pretrained_dict)
 except:
     print('cannot find pre-trained model')
@@ -126,23 +135,5 @@ with torch.no_grad():
 
 pred_csv = pd.DataFrame({"Contig":id2contig.values(), "Pred":all_pred, "Score":all_score})
 pred_csv.to_csv(inputs.out, index = False)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
