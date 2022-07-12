@@ -2,6 +2,14 @@
 
 PhaMer is a python library for identifying bacteriophages from metagenomic data. PhaMer is based on a Transorfer model and rely on protein-based vocabulary to convert DNA sequences into sentences. 
 
+# News
+1. The paper is accepted by Briefings in Bioinformatics. If you use PhaMer for your research, please use the following citation: 
+```
+Jiayu Shang, Xubo Tang, Ruocheng Guo, Yanni Sun, Accurate identification of bacteriophages from metagenomic data using Transformer, Briefings in Bioinformatics, 2022;, bbac258, https://doi.org/10.1093/bib/bbac258
+```
+2. Thanks for the help from [@sjaenick](https://github.com/sjaenick), the program is much smooth in this currect version.
+
+
 # Overview
 The main function of PhaMer is to identify phage-like contigs from metagenomic data. The input of the program should be fasta files and the output will be a csv file showing the predictions. Since it is a Deep learning model, if you have GPU units on your PC, we recommand you to use them to save your time. 
 
@@ -64,8 +72,8 @@ conda activate phamer
 ## Usage
 
 ```
-python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN] [--midfolder DIR]
-python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD] [--midfolder DIR]
+python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN] [--midfolder DIR] [--proteins PROTEIN_FA] [--threads NUM] [--dbdir DR]
+python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD] [--midfolder DIR] [--threads NUM] [--dbdir DR]
 ```
 
 **Options**
@@ -75,6 +83,13 @@ python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD] [--midfolder DIR]
                             input fasta file
       --len MINIMUM_LEN
                             predict only for sequence >= len bp (default 3000)
+      --proteins PROTEIN_FA
+                            An optional protein file. If you have already annotated your contigs, you can use them as the inputs. 
+                            Otherwise, PhaMer will run prodigal to translate your contigs.
+      --threads NUM
+                            Number of threads to run PhaMer (default 8)
+      --dbdir DR
+                            An optional path to store the database directory (default database/)
       --out OUTPUT_CSV
                             The output csv file (prediction)
       --reject THRESHOLD
@@ -92,7 +107,8 @@ Prediction on the example file:
 The prediction will be written in *example_prediction.csv*. The CSV file has three columns: contigs names, prediction, and prediction score. The test_contig.fasta contain a phage genome, so the output is phage.
     
 ### References
-The arXiv version can be found via: [Accurate identification of bacteriophages from metagenomic data using Transformer](http://arxiv.org/abs/2201.04778)
+The paper is accepted by Briefings in Bioinformatics and you can find it via: [PhaMer](https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbac258/6620872)
+The arXiv version can also be found via: [PhaMer](http://arxiv.org/abs/2201.04778)
 
 ### Contact
 If you have any questions, please email us: jyshang2-c@my.cityu.edu.hk
