@@ -6,6 +6,7 @@ import numpy as np
 import pickle as pkl
 import subprocess
 import argparse
+import shutil
 from collections import Counter
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
@@ -18,6 +19,7 @@ from Bio.SeqRecord import SeqRecord
 parser = argparse.ArgumentParser(description="""PhaMer is a python library for identifying bacteriophages from metagenomic data. 
                                  PhaMer is based on a Transorfer model and rely on protein-based vocabulary to convert DNA sequences into sentences.""")
 parser.add_argument('--contigs', help='FASTA file of contigs',  default = 'test_contigs.fa')
+parser.add_argument('--proteins', help='FASTA file of predicted proteins (optional)')
 parser.add_argument('--len', help='minimum length of contigs', type=int, default=3000)
 parser.add_argument('--threads', help='number of threads to use', type=int, default=8)
 parser.add_argument('--midfolder', help='folder to store the intermediate files', type=str, default='phamer/')
@@ -47,10 +49,12 @@ SeqIO.write(rec, f'{out_fn}/filtered_contigs.fa', 'fasta')
 ####################  Prodigal translation  #################
 #############################################################
 
-
-prodigal_cmd = f'prodigal -i {out_fn}/filtered_contigs.fa -a {out_fn}/test_protein.fa -f gff -p meta'
-print("Running prodigal...")
-_ = subprocess.check_call(prodigal_cmd, shell=True)
+if inputs.proteins is None:
+    prodigal_cmd = f'prodigal -i {out_fn}/filtered_contigs.fa -a {out_fn}/test_protein.fa -f gff -p meta'
+    print("Running prodigal...")
+    _ = subprocess.check_call(prodigal_cmd, shell=True)
+else:
+    shutil.copyfile(inputs.proteins, f'{out_fn}/test_protein.fa')
 
 
 
