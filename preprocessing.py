@@ -49,6 +49,8 @@ SeqIO.write(rec, f'{out_fn}/filtered_contigs.fa', 'fasta')
 ####################  Prodigal translation  #################
 #############################################################
 
+threads = inputs.threads
+
 if inputs.proteins is None:
     prodigal = "prodigal"
     # check if pprodigal is available
@@ -67,7 +69,6 @@ else:
 ####################  DIAMOND BLASTP  #######################
 #############################################################
 
-threads = inputs.threads
 
 print("\n\n" + "{:-^80}".format("Diamond BLASTp"))
 print("Creating Diamond database and running Diamond...")
