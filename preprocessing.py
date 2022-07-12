@@ -50,7 +50,12 @@ SeqIO.write(rec, f'{out_fn}/filtered_contigs.fa', 'fasta')
 #############################################################
 
 if inputs.proteins is None:
-    prodigal_cmd = f'prodigal -i {out_fn}/filtered_contigs.fa -a {out_fn}/test_protein.fa -f gff -p meta'
+    prodigal = "prodigal"
+    # check if pprodigal is available
+    if which("pprodigal") is not None:
+        prodigal = f'pprodigal -T {threads}'
+
+    prodigal_cmd = f'{prodigal} -i {out_fn}/filtered_contigs.fa -a {out_fn}/test_protein.fa -f gff -p meta'
     print("Running prodigal...")
     _ = subprocess.check_call(prodigal_cmd, shell=True)
 else:
