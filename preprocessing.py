@@ -19,6 +19,7 @@ parser = argparse.ArgumentParser(description="""PhaMer is a python library for i
                                  PhaMer is based on a Transorfer model and rely on protein-based vocabulary to convert DNA sequences into sentences.""")
 parser.add_argument('--contigs', help='FASTA file of contigs',  default = 'test_contigs.fa')
 parser.add_argument('--len', help='minimun length of contigs', type=int, default=3000)
+parser.add_argument('--threads', help='number of threads to use', type=int, default=8)
 parser.add_argument('--midfolder', help='folder to store the intermediate files', type=str, default='phamer/')
 inputs = parser.parse_args()
 
@@ -57,16 +58,18 @@ _ = subprocess.check_call(prodigal_cmd, shell=True)
 ####################  DIAMOND BLASTP  #######################
 #############################################################
 
+threads = inputs.threads
+
 print("\n\n" + "{:-^80}".format("Diamond BLASTp"))
 print("Creating Diamond database and running Diamond...")
 
 try:
     # create database
-    make_diamond_cmd = f'diamond makedb --threads 8 --in database/database.fa -d {out_fn}/database.dmnd'
+    make_diamond_cmd = f'diamond makedb --threads {threads} --in database/database.fa -d {out_fn}/database.dmnd'
     print("Creating Diamond database...")
     _ = subprocess.check_call(make_diamond_cmd, shell=True)
     # running alignment
-    diamond_cmd = f'diamond blastp --threads 8 --sensitive -d {out_fn}/database.dmnd -q {out_fn}/test_protein.fa -o {out_fn}/results.tab -k 1'
+    diamond_cmd = f'diamond blastp --threads {threads} --sensitive -d {out_fn}/database.dmnd -q {out_fn}/test_protein.fa -o {out_fn}/results.tab -k 1'
     print("Running Diamond...")
     _ = subprocess.check_call(diamond_cmd, shell=True)
     diamond_out_fp = f"{out_fn}/results.tab"
