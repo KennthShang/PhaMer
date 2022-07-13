@@ -57,9 +57,10 @@ curl -Lb ./cookie "https://drive.google.com/uc?export=download&`echo ${html}|gre
 
 cd ..
 ```
-*Note:* **Please check whether your transformer.pth is larger than 100M before using PhaMer**
+*Note:* 
 * Because the parameter is larger than 100M, please make sure you have downloaded transformer.pth correctly.
 * if you cannot download the *transformer.pth* from the command lines above, please use the [Google Drive link](https://drive.google.com/file/d/1d_6DGhN4Q-NZPKHEIo4yD4InLkP2U1rI/view?usp=sharing) to download it and place it in the *database/* folder. 
+* You can use command `md5sum -c check.md5` in *database/* folder to check whether the parameter file is correct (thanks for the suggestion from [@nick-youngblut](https://github.com/nick-youngblut).
 
 
 
