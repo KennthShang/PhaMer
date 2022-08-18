@@ -73,7 +73,7 @@ conda activate phamer
 ## Usage
 
 ```
-python preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN] [--midfolder DIR] [--proteins PROTEIN_FA] [--threads NUM] [--dbdir DR]
+python PhaMer_preprocessing.py [--contigs INPUT_FA] [--len MINIMUM_LEN] [--midfolder DIR] [--proteins PROTEIN_FA] [--threads NUM] [--dbdir DR]
 python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD] [--midfolder DIR] [--threads NUM] [--dbdir DR]
 ```
 
@@ -102,7 +102,7 @@ python PhaMer.py [--out OUTPUT_CSV] [--reject THRESHOLD] [--midfolder DIR] [--th
 
 Prediction on the example file:
 
-    python preprocessing.py --contigs test_contigs.fa
+    python PhaMer_preprocessing.py --contigs test_contigs.fa
     python PhaMer.py --out example_prediction.csv
 
 The prediction will be written in *example_prediction.csv*. The CSV file has three columns: contigs names, prediction, and prediction score. The test_contig.fasta contain a phage genome, so the output is phage.
