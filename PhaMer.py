@@ -43,7 +43,7 @@ num_pcs = len(set(pcs2idx.keys()))
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-if device == 'cpu':
+if device.type == 'cpu':
     print("running with cpu")
     torch.set_num_threads(inputs.threads)
 
