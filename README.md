@@ -57,7 +57,7 @@ bzip2 -d database.fa.bz2
 
 # initial files
 pip install gdown
-gdown  --id 16Uf2jD4gOYYyCpeYeC-9g8oolDa9jOxc
+gdown  --id 1d_6DGhN4Q-NZPKHEIo4yD4InLkP2U1rI
 cd ..
 ```
 *Note:* 
